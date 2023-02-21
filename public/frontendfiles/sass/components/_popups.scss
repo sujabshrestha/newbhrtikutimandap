@@ -1,0 +1,158 @@
+%popup-default{
+    visibility: hidden;
+    opacity: 0;
+    @include transition-default;
+
+    &.show{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.profile-popup{
+    @include pos-absolute(calc(100% + 10px), 0, null, null, 10);
+    box-shadow: rgba(50, 50, 93, 0.1) 0px 6px 12px -2px, rgba(0, 0, 0, 0.07) 0px 3px 7px -3px;
+    @include border-radius(8px);
+    @include px(26px);
+    @include py(24px);
+    @include bg-color($clr-white);
+    min-width: 280px;
+    @extend %popup-default;
+    
+
+    @include breakpoint-up(sm){
+        min-width: 320px;
+    }
+
+    .popup-head{
+        padding-bottom: 8px;
+        @include grid;
+        @include grid-template-columns(40px auto);
+        @include align-items(center);
+
+        .popup-img{
+            @include border-r-circle;
+            overflow: hidden;
+            @include box(30px);
+            @include breakpoint-up(sm){
+                @include box(40px);
+            }
+            @include breakpoint-up(md){
+                @include box(50px);
+            }
+            @include breakpoint-up(lg){
+                @include box(60px);
+            }
+        }
+
+        .icon{
+            width: 16px;
+            margin-right: 8px;
+        }
+
+        @include breakpoint-up(sm){
+            @include grid-template-columns(50px auto);
+            align-items: center;
+        }
+
+        @include breakpoint-up(md){
+            @include grid-template-columns(60px auto);
+        }
+        @include breakpoint-up(lg){
+            @include grid-template-columns(80px auto);
+        }
+    }
+
+    .popup-list-group{
+        .popup-list-item{
+            @include py(8px);
+
+            &:hover{
+                @include opacity(0.8);
+            }
+            .icon{
+                @include box(18px!important);
+                margin-right: 12px;
+                overflow: visible;
+
+                img{
+                    border-radius: 0!important;
+                }
+
+                @include breakpoint-up(md){
+                    @include box(24px!important);
+                }
+            }
+        }
+    }
+}
+
+.notify-popup{
+    @include pos-absolute(calc(100% + 10px), 0, null, null, 10);
+    @include bg-color($clr-white);
+    @include border-radius(8px);
+    box-shadow: rgba(50, 50, 93, 0.1) 0px 6px 12px -2px, rgba(0, 0, 0, 0.07) 0px 3px 7px -3px;
+    min-width: 280px;
+    @extend %popup-default;
+
+    @include breakpoint-up(sm){
+        min-width: 380px;
+    }
+
+    .notify-head{
+        @include p-all(16px);
+    }
+
+    .notify-list-group{
+        .notify-list-item{
+            @include grid;
+            @include grid-template-columns(28px auto);
+            @include p-all(16px);
+
+            &-icon{
+                @include box(24px);
+                @include bg-color(opacity(#2E9B1C, 0.2));
+                @include flex-center;
+                @include border-r-circle;
+                img{
+                    width: 60%;
+                }
+
+                @include breakpoint-up(md){
+                    @include box(32px);
+                }
+            }
+
+            &-text{
+                margin-left: 12px;
+                @include breakpoint-up(md){
+                    margin-left: 16px;
+                }
+            }
+
+            @include breakpoint-up(md){
+                @include grid-template-columns(36px auto);
+            }
+        }
+    }
+}
+
+
+// hover visibility effect
+.notification-btn-wrapper{
+    &:hover{
+        .notify-popup{
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
+.profile-btn-wrapper:hover{
+    &:hover{
+        .profile-popup{
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

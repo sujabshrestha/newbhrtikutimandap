@@ -1,0 +1,73 @@
+.form-label{
+    @include font-w("semi-bold");
+    @include font-s(map-get($font-size, "md"));
+
+    @include breakpoint-down(md){
+        @include font-s(map-get($font-size, "sm"));
+    }
+
+    @include breakpoint-down(xs){
+        @include font-s(map-get($font-size, "x-sm"));
+    }
+}
+
+.form-control{
+    @include border(#3a3a3a33, 2px);
+    @include border-radius(4px);
+    height: 56px;
+    @include font-s(map-get($font-size, "sm"));
+
+    @include breakpoint-down(md){
+        @include font-s(map-get($font-size, "x-sm"));
+        height: 52px;
+    }
+
+    @include breakpoint-down(xs){
+        @include font-s(map-get($font-size, "xx-sm"));
+    }
+
+    @include input-placeholder{
+        @include font-s(map-get($font-size, "xx-sm"));
+        color: #ABABAB;
+    }
+}
+
+.profile-form{
+    .form-block-title{
+        margin-bottom: 16px;
+        @include font-w("semi-bold");
+    }
+    .form-label{
+        margin-bottom: 8px!important;
+        @include font-s(map-get($font-size, "x-sm"));
+        @include breakpoint-down(md){
+            @include font-s(map-get($font-size, "xx-sm"));
+        }
+        @include breakpoint-down(xs){
+            @include font-s(map-get($font-size, "xxx-sm"));
+        }
+    }
+    .form-control{
+        margin-bottom: 14px!important;
+        height: 50px;
+        @include font-s(map-get($font-size, "x-sm"));
+        @include breakpoint-down(md){
+            @include font-s(map-get($font-size, "xx-sm"));
+            height: 48px;
+        }
+        @include breakpoint-down(xs){
+            @include font-s(map-get($font-size, "xxx-sm"));
+            height: 44px;
+        }
+    }
+    textarea.form-control{
+        height: 142px;
+    }
+    .submit-btn{
+        min-width: 216px;
+
+        @include breakpoint-down(xs){
+            width: 100%;
+        }
+    }
+}

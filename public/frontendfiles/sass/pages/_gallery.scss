@@ -1,0 +1,115 @@
+.page-gallery{
+    .sc-gallery{
+        .gallery-content{
+            .gallery-card{
+                cursor: pointer;
+                &-img{
+                    height: 400px;
+                    overflow: hidden;
+                    img{
+                        @include img-cover;
+                    }
+
+                    @include breakpoint-up(xs){
+                        height: 480px;
+                    }
+
+                    @include breakpoint-up(md){
+                        height: 400px;
+                    }
+
+                    @include breakpoint-up(xl){
+                        height: 480px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gallery-modal{
+    @include pos-fixed(0, 0, 0, 0);
+    @include bg-color(#000000F2);
+    z-index: 11;
+    visibility: hidden;
+    opacity: 0;
+
+    &.show{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .gallery-modal-content{
+        @include pos-relative;
+        @include py(50px);
+
+        .gallery-modal-close-btn{
+            @include pos-absolute(50px, 0, null, null, 12);
+            @include transition-default;
+
+            &:hover{
+                @include opacity(0.7);
+            }
+        }
+
+        .gallery-modal-body{
+            .img-preview{
+                max-width: 720px;
+                max-height: 440px;
+                overflow: hidden;
+                @include push--auto;
+
+                img{
+                    object-fit: none!important;
+                    object-position: top;
+                }
+            }
+
+            .img-thumbnails-temp{
+                overflow-x: scroll;
+                padding-bottom: 12px;
+
+                &::-webkit-scrollbar{
+                    height: 6px;
+                    &-track{
+                        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                        @include border-radius(6px);
+                    }
+                    &-thumb{
+                        background-color: $clr-silver-chalice;
+                        @include border-radius(6px);
+                    }
+                }
+            }
+
+            .img-thumbnails{
+                margin-top: 24px;
+                width: 1000px;
+                @include push--auto;
+
+                .thumbnail-item{
+                    width: 140px!important;
+                    height: 120px;
+                    overflow: hidden;
+                    @include mx(6.5px);
+                    @include transition-default;
+                    @include border(transparent, 1.6px);
+                    flex: 0 0 auto;
+                    cursor: pointer;
+
+                    img{
+                        @include img-cover;
+                    }
+
+                    &.active{@include border($clr-white, 1.6px);
+                        
+                    }
+
+                    &:hover{
+                        @include border($clr-white, 1.6px);
+                    }
+                }
+            }
+        }
+    }
+}

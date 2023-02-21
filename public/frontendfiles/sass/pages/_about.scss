@@ -1,0 +1,45 @@
+.page-about{
+    .sc-about-block-1{
+        .about-block-1-content{
+            .about-info-list{
+                .info-list-item{
+                    @include grid;
+                    @include grid-template-columns(40px auto);
+                    @include align-items(flex-start);
+                    text-align: left;
+
+                    .item-icon{
+                        @include box(40px);
+                        background: #1360E21A;
+                        @include p-all(8px);
+                        @include border-r-circle;
+                    }
+
+                    .item-text{
+                        padding-left: 13px;
+                    }
+                }
+            }
+        }
+    }
+
+    .sc-about-block-2{
+        .about-block-2-content{
+            .max-w-wrapper{
+                max-width: 636px;
+                max-height: 520px;
+                overflow: hidden;
+            }
+        }
+    }
+
+    .sc-about-block-3{
+        .about-block-3-content{
+            .max-w-wrapper{
+                max-width: 636px;
+                max-height: 520px;
+                overflow: hidden;
+            }
+        }
+    }
+}

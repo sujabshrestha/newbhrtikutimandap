@@ -1,0 +1,118 @@
+.page-navbar{
+    height: 88px;
+    @include pos-relative;
+
+    &-brand{
+        max-width: 151px;
+        width: 151px;
+        img{
+            width: 151px;
+            max-width: 151px;
+        }
+    }
+
+    .brand-and-toggler{
+        @include breakpoint-down(lg){
+            @include w-100;
+        }
+    }
+
+    &-close-btn{
+        margin-bottom: 20px;
+        @include transition-default;
+        img{
+            filter: invert(100%);
+        }
+
+        &:hover{
+            @include opacity(0.7);
+        }
+    }
+
+
+    &-collapse{
+        .page-nav-item{
+            @include px(12px);
+
+            .page-nav-link{
+                &:hover{
+                    @include opacity(0.8);
+                }
+            }
+        }
+
+        @include breakpoint-down(lg){
+            @include pos-fixed(0, 0, null, null);
+            z-index: 100;
+            @include bg-color($clr-white);
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            @include box(240px, 100%);
+            @include py(32px);
+            @include px(20px);
+            transform: translateX(100%);
+            @include transition-default;
+
+            .page-navbar-nav{
+                flex-direction: column;
+            }
+
+            .page-nav-item{
+                @include py(14px);
+                @include border(black(0.1), 1px, bottom);
+                width: 100%;
+                text-align: center;
+
+                &:last-child{
+                    @include border-none;
+                }
+            }
+
+            .page-nav-link{
+                @include font-s(18px!important);
+                text-align: center;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+
+                @include breakpoint-down(lg){
+                    @include font-s(16px!important);
+                }
+
+                @include breakpoint-down(sm){
+                    @include font-s(14px!important);
+                }
+            }
+        }
+
+        &.show{
+            transform: translateX(0);
+        }
+    }
+
+    &-toggler{
+        width: 25px;
+        @include opacity(0.4);
+
+        &:hover{
+            @include opacity(0.6);
+        }
+    }
+
+    &-profile{
+        @include breakpoint-down(lg){
+            margin-left: 12px;
+            width: 80px;
+        }
+        
+        z-index: 10;
+    }
+}
+
+.page-sidenav-overlay{
+    @include pos-absolute(0, 0, 0, 0, 99);
+    @include bg-color(black(0.1));
+    @include fade(hide);
+
+    &.show{
+        @include fade(show);
+    }
+}

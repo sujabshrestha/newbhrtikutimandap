@@ -1,0 +1,226 @@
+.page-index{
+    .sc-booking-selection{
+        margin-top: 80px;
+
+        @include breakpoint-down(md){
+            margin-top: 40px;
+        }
+
+        .booking-selection-content{
+            .booking-selection-item{
+                height: 58px;
+                @include border($clr-primary);
+
+                @include breakpoint-up(xs){
+                    height: 72px;
+                }
+
+                @include breakpoint-up(md){
+                    height: 80px;
+                }
+                
+                .input-group{
+                    .input-group-text{
+                        @include bg-transparent;
+                        @include border-none;
+                        img{
+                            width: 24px;
+
+                            @include breakpoint-up(md){
+                                width: 32px;
+                            }
+                        }
+                    }
+                    .form-control{
+                        @include border-none;
+                        @include input-placeholder{
+                            @include font-s(map-get($font-size, "md"));
+
+                            @include breakpoint-down(md){
+                                @include font-s(map-get($font-size, "sm"));
+                            }
+
+                            @include breakpoint-down(xs){
+                                @include font-s(map-get($font-size, "x-sm"));
+                            }
+                        }
+                    }
+
+                    
+                }
+
+                .input-group-options{
+                    position: absolute!important;
+                    top: 100%;
+                    left: -1px;
+                    right: -1px;
+                    @include border($clr-primary);
+                    @include p-all(16px);
+                    @include bg-color($clr-white);
+                    border-bottom-left-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    visibility: hidden;
+                    opacity: 0;
+                    height: 328px;
+                    overflow-y: scroll;
+                    
+                    &::-webkit-scrollbar{
+                        width: 6px;
+                    }
+
+                    &::-webkit-scrollbar-track{
+                        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+                        border-radius: 8px;
+                    }
+
+                    &::-webkit-scrollbar-thumb{
+                        background-color: $clr-silver-chalice;
+                        border-radius: 8px;
+                    }
+
+                    @include breakpoint-up(xxl){
+                        @include p-all(32px);
+                    }
+
+                    .form-check{
+                        @include py(4px);
+
+                        &-input{
+                            margin-top: 2px;
+                        }
+                    }
+
+                    .form-check-input{
+                        @include border-r-circle;
+                        @include box(18px);
+                    }
+
+                    &.show{
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+
+                &:nth-child(1), &:nth-child(2){
+                    border-bottom: 0;
+                    @include breakpoint-up(md){
+                        @include px(33px);
+                    }
+                }
+
+                &:nth-child(1){
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                }
+
+                &:nth-child(3){
+                    @include border-none;
+                    border-bottom-right-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                    overflow: hidden;
+                }
+
+                .book-now-btn{
+                    height: 100%;
+                    width: 100%;
+                    @include border-r-none;
+                    min-width: 322px;
+
+                    &:hover{
+                        @include bg-color($clr-primary!important);
+                        .btn-text{
+                            color: $clr-white;
+                        }
+                    }
+                }
+
+                @include breakpoint-up(lg){
+                    &:nth-child(1), &:nth-child(2){
+                        @include border($clr-primary);
+                    }
+
+                    &:nth-child(1), &:nth-child(2){
+                        border-right: none;
+                    }
+
+                    &:nth-child(1){
+                        border-top-left-radius: 4px;
+                        border-top-right-radius: 0px;
+                        border-bottom-left-radius: 4px;
+                    }
+    
+                    &:nth-child(3){
+                        @include border-none;
+                        border-top-right-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                        border-bottom-left-radius: 0px;
+                        overflow: hidden;
+                    }
+                }
+
+                @include breakpoint-up(lg){
+                    &:nth-child(1), &:nth-child(2){
+                        min-width: 300px;
+                    }
+                }
+
+                @include breakpoint-up(xl){
+                    &:nth-child(1), &:nth-child(2){
+                        min-width: 350px;
+                    }
+                }
+
+                @include breakpoint-up(xxl){
+                    &:nth-child(1), &:nth-child(2){
+                        min-width: 478px;
+                    }
+                }
+            }
+        }
+
+        &.sc-booking-selection-2{
+            margin-top: 30px;
+            .booking-selection-item{
+                width: 100%;
+                border: 1px solid $clr-primary!important;
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+        }
+    }
+
+    .sc-avail{
+        margin-top: 88px;
+        @include breakpoint-down(md){
+            margin-top: 40px;
+        }
+
+        .sc-avail-content{
+            .avail-data{
+                margin-top: 42px;
+                .avail-text{
+                    @include font-s(map-get($font-size, "x-sm"));
+                    font-family: Urbanist;letter-spacing: 0.02em;
+
+                    @include breakpoint-down(md){
+                        @include font-s(map-get($font-size, "xx-sm"));
+                    }
+
+                    @include breakpoint-down(xs){
+                        @include font-s(map-get($font-size, "xxx-sm"));
+                    }
+
+                    &-lg{
+                        @include font-s(map-get($font-size, "md"));
+                        @include breakpoint-down(md){
+                            @include font-s(map-get($font-size, "sm"));
+                        }
+                        @include breakpoint-down(xs){
+                            @include font-s(map-get($font-size, "x-sm"));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

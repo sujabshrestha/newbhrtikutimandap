@@ -1,0 +1,15 @@
+.sc-title{
+    h3{
+        @include font-w('medium');
+        @include font-s(map-get($font-size, "x-lg"));
+        letter-spacing: 0.02em;
+
+        @include breakpoint-down(md){
+            @include font-s(map-get($font-size, "lg"));
+        }
+
+        @include breakpoint-down(xs){
+            @include font-s(map-get($font-size, "md"));
+        }
+    }
+}
